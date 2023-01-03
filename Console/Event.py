@@ -12,8 +12,9 @@ driver = webdriver.Chrome(options=options, service=service_obj)
 
 driver.get("https://console.horse.mycoachapp.org")
 driver.maximize_window()
+
 # Valid login
-driver.find_element(By.XPATH, "//input[@ng-model='ctrl.email']").send_keys("murthy.upadhyayula@zenq.com")
+driver.find_element(By.XPATH, "//input[@ng-model='ctrl.email']").send_keys("ananthamahesh.yeruva@zenq.com")
 driver.find_element(By.XPATH, "//input[@ng-model='ctrl.password']").send_keys("Letmein@123")
 driver.find_element(By.XPATH, "//button[@type='submit']").click()
 time.sleep(10)  # Sleep command to enter 2FA code
