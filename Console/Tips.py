@@ -7,12 +7,11 @@ from selenium.webdriver.common.by import By
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
-
 service_obj = Service("C:\\Users\\ananthamahesh.yeruva\\Downloads\\chromedriver_win32\\chromedriver")
 driver = webdriver.Chrome(options=options, service=service_obj)
-
 driver.get("https://console.horse.mycoachapp.org")
 driver.maximize_window()
+
 #================================================================================================================#
 # Valid login
 #================================================================================================================#
@@ -486,3 +485,95 @@ for category in Category:
         break
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()     #Save
 
+
+
+
+
+# ================================================================================================================#
+# Sorting Tips with Sort and Order
+# ================================================================================================================#
+driver.find_element(By.XPATH, "//a[@aria-label='Events']").click()  # Events
+driver.find_element(By.XPATH, "//a[@aria-label='Tips']").click()  # Tips
+time.sleep(5)
+Author = driver.find_element(By.XPATH, "//md-option[@value='created_by_user_id']")
+Call_to_Action = driver.find_element(By.XPATH, "//md-option[@value='call_to_action']")
+Date_to_send = driver.find_element(By.XPATH, "//md-option[@value='date_to_send']")
+Details = driver.find_element(By.XPATH, "//md-option[@value='text']")
+ID = driver.find_element(By.XPATH, "//md-option[@value='id']")
+Asc = driver.find_element(By.XPATH, "//md-option[@value='asc']")
+Desc = driver.find_element(By.XPATH, "//md-option[@value='desc']")
+
+#Sort Author > Asc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Author.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Asc.click()
+time.sleep(3)
+#Sort Author > Desc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Author.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Desc.click()
+time.sleep(3)
+
+#Sort Call to Action > Asc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Call_to_Action.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Asc.click()
+time.sleep(3)
+#Sort Call to Action > Desc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Call_to_Action.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Desc.click()
+time.sleep(3)
+
+#Sort Date to Send > Asc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Date_to_send.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Asc.click()
+time.sleep(3)
+#Sort Date to Send > Desc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Date_to_send.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Desc.click()
+time.sleep(3)
+
+#Sort Details > Asc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Details.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Asc.click()
+time.sleep(3)
+#Sort Details > Desc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+Details.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Desc.click()
+time.sleep(3)
+
+#Sort ID > Asc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+ID.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Asc.click()
+time.sleep(3)
+#Sort ID > Desc
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortBy']").click()
+ID.click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
+Desc.click()
+time.sleep(3)

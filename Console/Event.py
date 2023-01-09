@@ -37,15 +37,13 @@ for CheckBox in District:
     if CheckBox.text  == "Anoka-Ramsey Community College District":
         CheckBox.click()
         break
-webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform() #To close the pop-up
-
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform() #To close the pop-u
 driver.find_element(By.XPATH, "//md-select[@name='content_owner']").click()
 Content_Owner = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.results']")
 for ContentOwner in Content_Owner:
     if ContentOwner.text == "Timbuktu College":
         ContentOwner.click()
         break
-
 driver.find_element(By.XPATH, "//input[@aria-label='event title']").send_keys("Sample event")
 Date = date.today().strftime("%b %d, %Y")
 EventDate = driver.find_element(By.XPATH, "//input[@name='start_date']")
@@ -61,12 +59,10 @@ for category in Category:
     if category.text == "Career":
         category.click()
         break
-
 driver.find_element(By.XPATH, "//button[@ng-click='ctrl.addReminder()']").click()
 time.sleep(2)
 Notification_Date = driver.find_element(By.XPATH, "//input[@name='reminder_0_date_to_send']")
 Notification_Date.send_keys(Date)
-
 driver.find_element(By.XPATH, "//textarea[@name='reminder_0_text']").send_keys("Text")
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
 
@@ -84,14 +80,12 @@ for CheckBox in College:
         CheckBox.click()
         break
 webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform() #To close the pop-up
-
 driver.find_element(By.XPATH, "//md-select[@name='content_owner']").click()
 Content_Owner = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.results']")
 for ContentOwner in Content_Owner:
     if ContentOwner.text == "Timbuktu College":
         ContentOwner.click()
         break
-
 driver.find_element(By.XPATH, "//input[@aria-label='event title']").send_keys(" Sample event for a college")
 Date = date.today().strftime("%b %d, %Y")
 EventDate = driver.find_element(By.XPATH, "//input[@name='start_date']")
@@ -107,12 +101,10 @@ for category in Category:
     if category.text == "Career":
         category.click()
         break
-
 driver.find_element(By.XPATH, "//button[@ng-click='ctrl.addReminder()']").click()
 time.sleep(2)
 Notification_Date = driver.find_element(By.XPATH, "//input[@name='reminder_0_date_to_send']")
 Notification_Date.send_keys(Date)
-
 driver.find_element(By.XPATH, "//textarea[@name='reminder_0_text']").send_keys("Text")
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
 
@@ -130,14 +122,12 @@ for CheckBox in Term:
         CheckBox.click()
         break
 webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform() #To close the pop-up
-
 driver.find_element(By.XPATH, "//md-select[@name='content_owner']").click()
 Content_Owner = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.results']")
 for ContentOwner in Content_Owner:
     if ContentOwner.text == "Timbuktu College":
         ContentOwner.click()
         break
-
 driver.find_element(By.XPATH, "//input[@aria-label='event title']").send_keys(" Sample event for a Term")
 Date = date.today().strftime("%b %d, %Y")
 EventDate = driver.find_element(By.XPATH, "//input[@name='start_date']")
@@ -153,12 +143,10 @@ for category in Category:
     if category.text == "Career":
         category.click()
         break
-
 driver.find_element(By.XPATH, "//button[@ng-click='ctrl.addReminder()']").click()
 time.sleep(2)
 Notification_Date = driver.find_element(By.XPATH, "//input[@name='reminder_0_date_to_send']")
 Notification_Date.send_keys(Date)
-
 driver.find_element(By.XPATH, "//textarea[@name='reminder_0_text']").send_keys("Text")
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
 
@@ -197,12 +185,10 @@ for category in Category:
     if category.text == "Career":
         category.click()
         break
-
 driver.find_element(By.XPATH, "//button[@ng-click='ctrl.addReminder()']").click()
 time.sleep(2)
 Notification_Date = driver.find_element(By.XPATH, "//input[@name='reminder_0_date_to_send']")
 Notification_Date.send_keys(Date)
-
 driver.find_element(By.XPATH, "//textarea[@name='reminder_0_text']").send_keys("Text")
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
 
@@ -241,12 +227,10 @@ for category in Category:
     if category.text == "Career":
         category.click()
         break
-
 driver.find_element(By.XPATH, "//button[@ng-click='ctrl.addReminder()']").click()
 time.sleep(2)
 Notification_Date = driver.find_element(By.XPATH, "//input[@name='reminder_0_date_to_send']")
 Notification_Date.send_keys(Date)
-
 driver.find_element(By.XPATH, "//textarea[@name='reminder_0_text']").send_keys("Text")
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
 
