@@ -25,27 +25,40 @@ time.sleep(5)
 print(driver.title)
 
 #================================================================================================================#
-# Creating a Tip for a District with BG Image and notification
+# Creating a Tip for a District with notification
 #================================================================================================================#
 driver.find_element(By.XPATH, "//a[@aria-label='Events']").click()
 driver.find_element(By.XPATH, "//a[@aria-label='Tips']").click()
 driver.find_element(By.XPATH,"//a[@ng-href='/tips/add']").click()
 time.sleep(2)
+driver.find_element(By.XPATH, "//md-select[@name='district']").click()
+time.sleep(2)
+District = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+for CheckBox in District:
+    if CheckBox.text  == "Anoka-Ramsey Community College District":
+        CheckBox.click()
+        break
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform() #To close the pop-up
+
+driver.find_element(By.XPATH, "//md-select[@name='content_owner']").click()
+Content_Owner = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.results']")
+for ContentOwner in Content_Owner:
+    if ContentOwner.text == "Timbuktu College":
+        ContentOwner.click()
+        break
 driver.find_element(By.XPATH, "//input[@aria-label='title']").send_keys("Sample Tip Title")
 driver.find_element(By.XPATH, "//textarea[@name='call_to_action']").send_keys("Sample Action Message")
 driver.find_element(By.XPATH, "//input[@ng-model='ctrl.model.attribution']").send_keys("Hello Tip")
-
 driver.find_element(By.XPATH, "//md-radio-button[@aria-label='Use background image']").click()
-time.sleep(2)
-
-driver.find_element(By.XPATH, "//input[@ng-model='ctrl.model.background.url']").send_keys("C:\\Users\\ananthamahesh.yeruva\\Downloads\\MyCoach_Mindmap.jpg")
+BGImage = driver.find_element(By.XPATH, "//button[@type='file']")
+BGImage.send_keys("C:\\Users\\ananthamahesh.yeruva\\Downloads\\MyCoach_Mindmap.jpg")
 Iframe = driver.find_element(By.XPATH, "//iframe[@title='Rich Text Area']")
 Iframe.send_keys(" Sample Tip with Text")
-time.sleep(2)
+time.sleep(1)
 Date = date.today().strftime("%b %d, %Y")
 TipDate = driver.find_element(By.XPATH, "//input[@name='date_to_send']")
-TipDate.click()
-TipDate.clear()
+TipDateDate.click()
+TipDateDate.clear()
 TipDate.send_keys(Date)
 driver.find_element(By.XPATH, "//md-select[@aria-label='category']").click()
 Category = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.mapping.flutterCategories']")

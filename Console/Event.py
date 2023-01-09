@@ -53,7 +53,7 @@ EventDate.click()
 EventDate.clear()
 EventDate.send_keys(Date)
 Iframe = driver.find_element(By.XPATH, "//iframe[@title='Rich Text Area']")
-Iframe.send_keys("Sample event")
+Iframe.send_keys(" sample event")
 time.sleep(1)
 driver.find_element(By.XPATH, "//md-select[@aria-label='category']").click()
 Category = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.mapping.flutterCategories']")
@@ -99,7 +99,7 @@ EventDate.click()
 EventDate.clear()
 EventDate.send_keys(Date)
 Iframe = driver.find_element(By.XPATH, "//iframe[@title='Rich Text Area']")
-Iframe.send_keys("Sample event")
+Iframe.send_keys(" Sample event")
 time.sleep(1)
 driver.find_element(By.XPATH, "//md-select[@aria-label='category']").click()
 Category = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.mapping.flutterCategories']")
@@ -145,7 +145,7 @@ EventDate.click()
 EventDate.clear()
 EventDate.send_keys(Date)
 Iframe = driver.find_element(By.XPATH, "//iframe[@title='Rich Text Area']")
-Iframe.send_keys("Sample event")
+Iframe.send_keys(" Sample event")
 time.sleep(1)
 driver.find_element(By.XPATH, "//md-select[@aria-label='category']").click()
 Category = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.mapping.flutterCategories']")
@@ -163,7 +163,7 @@ driver.find_element(By.XPATH, "//textarea[@name='reminder_0_text']").send_keys("
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
 
 #================================================================================================================#
-# Creating an Event for Term with notification
+# Creating an Event for Cohort with notification
 #================================================================================================================#
 driver.find_element(By.XPATH, "//a[@aria-label='Events']").click()
 driver.find_element(By.XPATH, "//a[@ng-href='/events/add']").click()
@@ -189,7 +189,7 @@ EventDate.click()
 EventDate.clear()
 EventDate.send_keys(Date)
 Iframe = driver.find_element(By.XPATH, "//iframe[@title='Rich Text Area']")
-Iframe.send_keys("Sample event")
+Iframe.send_keys(" Sample event")
 time.sleep(1)
 driver.find_element(By.XPATH, "//md-select[@aria-label='category']").click()
 Category = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.mapping.flutterCategories']")
@@ -233,7 +233,7 @@ EventDate.click()
 EventDate.clear()
 EventDate.send_keys(Date)
 Iframe = driver.find_element(By.XPATH, "//iframe[@title='Rich Text Area']")
-Iframe.send_keys("Sample event")
+Iframe.send_keys(" Sample event")
 time.sleep(1)
 driver.find_element(By.XPATH, "//md-select[@aria-label='category']").click()
 Category = driver.find_elements(By.XPATH, "//md-option[@ng-repeat='item in ctrl.mapping.flutterCategories']")
@@ -281,6 +281,30 @@ for category in Category:
         category.click()
         break
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
+
+#================================================================================================================#
+# Clone an Event and save it without any changes
+#================================================================================================================#
+driver.find_element(By.XPATH, "//a[@aria-label='Events']").click()
+time.sleep(2)
+driver.find_element(By.XPATH, "//md-select[@name='status']").click()
+driver.find_element(By.XPATH, "//div[normalize-space()='Not Sent']").click()
+#Status_NotSent = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+#for Status in Status_NotSent:
+#    if Status.text == "Not Sent":
+#        Status.click()
+#        break
+time.sleep(3)
+#Click on a Not Sent event
+driver.find_element(By.XPATH, "(//small[@class='small-tag md-caption no-animate status ng-binding not_sent'])[1]").click()
+time.sleep(3)
+driver.find_element(By.XPATH, "//a[@class='md-button md-ink-ripple']").click() #Click on Clone button
+time.sleep(2)
+driver.find_element(By.XPATH, "//button[normalize-space()='Leave']").click() #Leave button
+print(driver.title)
+time.sleep(2)
+driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()
+
 
 #================================================================================================================#
 #
