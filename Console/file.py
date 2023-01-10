@@ -23,4 +23,13 @@ driver.find_element(By.XPATH, "//span[@class='ng-scope']").click()
 time.sleep(5)
 print(driver.title)
 
+# ================================================================================================================#
+# Status filtering
+# ================================================================================================================#
+driver.find_element(By.XPATH, "//a[@aria-label='Events']").click()  # Events
+driver.find_element(By.XPATH, "//a[@aria-label='Tips']").click()  # Tips
+time.sleep(5)
 
+#Calendar View
+driver.find_element(By.XPATH, "//md-input-container[@class='flex-none hide show-gt-sm']//button[@aria-label='Calendar View'][normalize-space()='Calendar View']").click()
+time.sleep(3)

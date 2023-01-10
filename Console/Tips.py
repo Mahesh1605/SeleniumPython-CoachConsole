@@ -485,10 +485,6 @@ for category in Category:
         break
 driver.find_element(By.XPATH, "//button[normalize-space()='Save']").click()     #Save
 
-
-
-
-
 # ================================================================================================================#
 # Sorting Tips with Sort and Order
 # ================================================================================================================#
@@ -577,3 +573,84 @@ time.sleep(3)
 driver.find_element(By.XPATH, "//md-select[@ng-model='ctrl.query.sortOrder']").click()
 Desc.click()
 time.sleep(3)
+
+# ================================================================================================================#
+# Status filtering
+# ================================================================================================================#
+driver.find_element(By.XPATH, "//a[@aria-label='Events']").click()  # Events
+driver.find_element(By.XPATH, "//a[@aria-label='Tips']").click()  # Tips
+time.sleep(5)
+
+#Status - Not Sent
+driver.find_element(By.XPATH, "//md-select[@name='status']").click()
+driver.find_element(By.XPATH, "//div[normalize-space()='Not Sent']").click()
+time.sleep(3)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
+
+#Status - Sent
+driver.find_element(By.XPATH, "//md-select[@name='status']").click()
+driver.find_element(By.XPATH, "//div[normalize-space()='Sent']").click()
+time.sleep(3)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
+
+#Category
+driver.find_element(By.XPATH, "//md-select[@name='categories']").click()
+Category = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+for category in Category:
+    if category.text == "Academic planning":
+        category.click()
+        break
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+time.sleep(5)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
+
+#Districts
+driver.find_element(By.XPATH, "//md-select[@name='mydistricts']").click()
+District = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+for district in District:
+    if district.text == "Alan Hancock":
+        district.click()
+        break
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+time.sleep(5)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
+
+#Colleges
+driver.find_element(By.XPATH, "//md-select[@name='mycolleges']").click()
+Colleges = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+for college in Colleges:
+    if college.text == "Timbuktu College":
+        college.click()
+        break
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+time.sleep(5)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
+
+#Cohorts
+driver.find_element(By.XPATH, "//md-select[@name='mycohorts']").click()
+Cohorts = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+for cohort in Cohorts:
+    if cohort.text == "Murthy (Testing Coach)":
+        cohort.click()
+        break
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+time.sleep(5)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
+
+#Level
+driver.find_element(By.XPATH, "//md-select[@name='levels']").click()
+Levels = driver.find_elements(By.XPATH, "//div[@class='md-text ng-binding']")
+for level in Levels:
+    if level.text == "Continuing":
+        level.click()
+        break
+webdriver.ActionChains(driver).send_keys(Keys.ESCAPE).perform()
+time.sleep(5)
+ClearFilter = driver.find_element(By.XPATH, "//div[@ng-if='$mdChipsCtrl.isRemovable()']")
+ClearFilter.click()
